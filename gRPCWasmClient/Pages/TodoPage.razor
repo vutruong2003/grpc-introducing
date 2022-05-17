@@ -1,0 +1,26 @@
+﻿@page "/todo"
+@page "/"
+
+<PageTitle>To do</PageTitle>
+
+<h3>To do</h3>
+
+<div class="mt-4">
+    <EditForm Model="@_item" OnSubmit="AddTodo">
+        <div class="mt-2">
+            <input type="text" @bind-value="@_item.Content" />
+        </div>
+        <div class="mt-2">
+            <button class="btn btn-primary">Add New</button>
+        </div>
+    </EditForm>
+</div>
+<div class="mt-4">
+    @if (_items != null)
+    {
+        @for (var i = 0; i < _items.Count; i++)
+        {
+            <div class="mb-2"><span class="pe-2">@(i + 1).</span>@_items[i].Content</div>
+        }
+    }
+</div>

@@ -1,0 +1,52 @@
+syntax = "proto3";
+
+option csharp_namespace = "gRPCProto";
+
+package todo;
+
+// The todo service definition.
+service Todo {
+  rpc GetLists (Empty) returns (TodoList);
+  rpc AddTodo (AddTodoRequest) returns (AddTodoResponse);
+  rpc UpdateTodo (UpdateTodoRequest) returns (Empty);
+  rpc RemoveTodo (RemoveTodoRequest) returns (Empty);
+
+}
+
+message Empty {
+
+}
+
+message TodoItem {
+  string id = 1;
+  string content = 2;
+  int32 status = 3;
+}
+
+message TodoList {
+  repeated TodoItem Items = 1;
+}
+
+message UpdateTodoRequest {
+  TodoItem Item = 1;
+}
+
+message UpdateTodoResponse {
+  TodoItem Item = 1;
+}
+
+message AddTodoRequest {
+  TodoItem Item = 1;
+}
+
+message AddTodoResponse {
+  TodoItem Item = 1;
+}
+
+message RemoveTodoRequest {
+	string id = 1;
+}
+
+message RemoveTodoResponse {
+	string message = 1;
+}

@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+option csharp_namespace = "gRPCProto";
+
+package counter;
+
+service Counter {
+  rpc StartCounter (CounterRequest) returns (stream CounterResponse);
+  rpc DoCount (CountRequest) returns (CounterResponse);
+  rpc ResetCounter (CounterRequest) returns (CounterResponse);
+}
+
+message CounterRequest {
+  int32 start = 1;
+}
+
+message CountRequest {
+	int32 amount = 1;
+}
+
+message CounterResponse {
+  int32 count = 1;
+}

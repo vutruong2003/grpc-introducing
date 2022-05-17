@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Protobuf Include="..\gRPCProto\count.proto" GrpcServices="Client" Link="Protos\count.proto" />
+		<Protobuf Include="..\gRPCProto\todo.proto" GrpcServices="Client" Link="Protos\todo.proto" />
+		<Protobuf Include="..\gRPCProto\greet.proto" GrpcServices="Client" Link="Protos\greet.proto" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Google.Protobuf" Version="3.19.3" />
+		<PackageReference Include="Grpc.Net.Client" Version="2.41.0" />
+		<PackageReference Include="Grpc.Net.CLient.Web" Version="2.41.0" />
+		<PackageReference Include="Grpc.Net.ClientFactory" Version="2.41.0" />
+		<PackageReference Include="Grpc.Tools" Version="2.43.0">
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+			<PrivateAssets>all</PrivateAssets>
+		</PackageReference>
+		<PackageReference Include="Microsoft.AspNetCore.Components" Version="6.0.1" />
+	</ItemGroup>
+
+</Project>

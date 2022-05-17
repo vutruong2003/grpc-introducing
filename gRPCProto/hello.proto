@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+option csharp_namespace = "gRPCProto";
+
+package helloworld;
+
+message HelloWorldRequest {
+    string name = 1;
+    int32 amount = 2;
+}
+
+message HelloWorldResponse {
+    string name = 1;
+    int32 amount = 2;
+}
+
+service HelloWorld {
+    rpc SayHelloWorld(HelloWorldRequest) returns (HelloWorldResponse);
+
+    rpc SayHelloWorldSS(HelloWorldRequest) returns (stream HelloWorldResponse);
+}

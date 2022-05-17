@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Protobuf Include="..\gRPCProto\count.proto" GrpcServices="Server" Link="Protos\count.proto" />
+		<Protobuf Include="..\gRPCProto\hello.proto" GrpcServices="Server">
+		  <Link>Protos\hello.proto</Link>
+		</Protobuf>
+		<Protobuf Include="..\gRPCProto\todo.proto" GrpcServices="Server" Link="Protos\todo.proto" />
+		<Protobuf Include="..\gRPCProto\greet.proto" GrpcServices="Server" Link="Protos\greet.proto" />
+	</ItemGroup>
+	
+	<ItemGroup>
+		<PackageReference Include="Grpc.AspNetCore" Version="2.40.0" />
+		<PackageReference Include="Grpc.AspNetCore.Web" Version="2.41.0" />
+		<PackageReference Include="StackExchange.Redis" Version="2.2.88" />
+	</ItemGroup>
+
+</Project>
